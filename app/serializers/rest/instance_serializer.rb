@@ -11,8 +11,7 @@ class REST::InstanceSerializer < ActiveModel::Serializer
 
   attributes :domain, :title, :version, :source_url, :description,
              :usage, :thumbnail, :languages, :configuration,
-             :registrations,
-             :feature_quote
+             :registrations, :feature_quote, :max_toot_chars
 
   has_one :contact, serializer: ContactSerializer
   has_many :rules, serializer: REST::RuleSerializer
@@ -91,6 +90,10 @@ class REST::InstanceSerializer < ActiveModel::Serializer
 
   def feature_quote
     true
+  end
+
+  def max_toot_chars
+    StatusLengthValidator::MAX_CHARS
   end
 
   private
