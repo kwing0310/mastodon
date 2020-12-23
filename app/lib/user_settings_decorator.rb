@@ -36,6 +36,7 @@ class UserSettingsDecorator
     default_language
     theme
     display_media
+    custom_css
   ).freeze
 
   def initialize(user)

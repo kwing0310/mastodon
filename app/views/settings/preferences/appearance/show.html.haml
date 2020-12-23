@@ -61,5 +61,12 @@
   .fields-group
     = f.input :setting_expand_spoilers, as: :boolean, wrapper: :with_label
 
+  %h4= t 'appearance.advanced_preferences'
+
+  .flash-message.advanced-prompt= t('appearance.advanced_preferences_description')
+
+  .fields-group
+    = f.input :setting_custom_css, wrapper: :with_block_label, as: :text, input_html: { rows: 8 }, label: t('appearance.user_css')
+
   .actions
     = f.button :button, t('generic.save_changes'), type: :submit
