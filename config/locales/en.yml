@@ -911,6 +911,9 @@ en:
       guide_link_text: Everyone can contribute.
     sensitive_content: Sensitive content
     toot_layout: Post layout
+    advanced_preferences: Advanced Preferences
+    advanced_preferences_description: This setting only be used if you know what it does. Entering improper values may cause the client to stop functioning normally.
+    user_css: User CSS
   application_mailer:
     notification_preferences: Change e-mail preferences
     salutation: "%{name},"
