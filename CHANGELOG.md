@@ -3,6 +3,23 @@ Changelog
 
 All notable changes to this project will be documented in this file.
 
+## [3.5.10+chillout.1] - 2023-07-08
+
+### Added
+
+- Add cat feature ([atsu1125, kwing0310](https://github.com/kwing0310/mastodon/commit/6195be0ae9532f35c5b3a610e5a5310d64e8c9f8))
+- Add user custom css option ([mashirozx](https://github.com/kwing0310/mastodon/commit/cad155ec6e74c95a027a08ac7dd30ecdddeb1c1b))
+- Add character limit option ([mashirozx](https://github.com/kwing0310/mastodon/commit/fe9e7f6f27c4a9534fa67018bd44d32d39384110))
+- Add workflow to build and push container image to GHCR ([kwing0310](https://github.com/kwing0310/mastodon/commit/4c9e4cac1b91f99b2f41d121223c0c10ecbc4761))
+
+### Changed
+
+- Change default font Roboto to [Sakura Koruri](https://koruri.chillout.chat) ([kwing0310](https://github.com/kwing0310/mastodon/commit/ec25250e4d1c6f1c5790d0af9bcc24310054e496))
+
+### Reverted
+
+- Revert auto follow feature for admins ([mashirozx](https://github.com/kwing0310/mastodon/commit/f93c300de3781e1b377a70290506b9f58aa33670))
+
 ## [3.5.10] - 2023-07-07
 
 ### Fixed

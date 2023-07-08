@@ -21,7 +21,7 @@ module Mastodon
     end
 
     def suffix
-      ''
+      '+chillout.1'
     end
 
     def to_a
