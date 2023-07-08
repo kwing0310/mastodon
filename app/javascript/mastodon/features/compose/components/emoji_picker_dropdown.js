@@ -33,14 +33,6 @@ const backgroundImageFn = () => `${assetHost}/emoji/sheet_13.png`;
 
 const notFoundFn = () => (
   <div className='emoji-mart-no-results'>
-    <Emoji
-      emoji='sleuth_or_spy'
-      set='twitter'
-      size={32}
-      sheetSize={32}
-      backgroundImageFn={backgroundImageFn}
-    />
-
     <div className='emoji-mart-no-results-label'>
       <FormattedMessage id='emoji_button.not_found' defaultMessage='No matching emojis found' />
     </div>
