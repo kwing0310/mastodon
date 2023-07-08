@@ -26,4 +26,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/seiunhq/mastodon:latest
+          tags: ghcr.io/kwing0310/mastodon:latest
