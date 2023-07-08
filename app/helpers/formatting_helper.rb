@@ -15,6 +15,14 @@ module FormattingHelper
   module_function :extract_status_plain_text
 
   def status_content_format(status)
+    html_aware_format(status.text, status.local?,
+      preloaded_accounts: [status.account] + (status.respond_to?(:active_mentions) ? status.active_mentions.map(&:account) : []),
+      quote_uri: status.quote? ? ActivityPub::TagManager.instance.url_for(status.quote) : nil,
+      nyaize: status.account.cat
+    )
+  end
+
+  def quote_status_content_format(status)
     html_aware_format(status.text, status.local?, preloaded_accounts: [status.account] + (status.respond_to?(:active_mentions) ? status.active_mentions.map(&:account) : []), nyaize: status.account.cat)
   end
 
