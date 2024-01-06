@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 
 import { FormattedMessage } from 'react-intl';
 
-import { ReactComponent as GroupsIcon } from '@material-design-icons/svg/outlined/group.svg';
-import { ReactComponent as PersonIcon } from '@material-design-icons/svg/outlined/person.svg';
+import { ReactComponent as GroupsIcon } from '@material-design-icons/svg/filled/group.svg';
+import { ReactComponent as PersonIcon } from '@material-design-icons/svg/filled/person.svg';
 import { ReactComponent as SmartToyIcon } from '@material-design-icons/svg/outlined/smart_toy.svg';
 
 
@@ -31,4 +31,8 @@ export const GroupBadge = () => (
 
 export const AutomatedBadge = () => (
   <Badge icon={<SmartToyIcon />} label={<FormattedMessage id='account.badges.bot' defaultMessage='Automated' />} />
+);
+
+export const CatBadge = () => (
+  <Badge icon={<i class='fa fa-paw' />} label={<FormattedMessage id='account.badges.cat' defaultMessage='Cat' />} />
 );
