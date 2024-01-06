@@ -318,6 +318,14 @@ class Header extends ImmutablePureComponent {
       badge = null;
     }
 
+    let catBadge;
+
+    if (account.get('cat')) {
+      catBadge = (<div className='account-role cat'><FormattedMessage id='account.badges.cat' defaultMessage='Cat' /></div>);
+    } else {
+      catBadge = null;
+    }
+
     return (
       <div className={classNames('account__header', { inactive: !!account.get('moved') })} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
         {!(suspended || hidden || account.get('moved')) && account.getIn(['relationship', 'requested_by']) && <FollowRequestNoteContainer account={account} />}
@@ -352,7 +360,7 @@ class Header extends ImmutablePureComponent {
 
           <div className='account__header__tabs__name'>
             <h1>
-              <span dangerouslySetInnerHTML={displayNameHtml} /> {badge}
+              <span dangerouslySetInnerHTML={displayNameHtml} /> {badge} {catBadge}
               <small>
                 <span>@{acct}</span> {lockedIcon}
               </small>

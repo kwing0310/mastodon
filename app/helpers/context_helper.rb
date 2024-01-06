@@ -26,6 +26,7 @@ module ContextHelper
     quote_uri: { 'fedibird' => 'http://fedibird.com/ns#', 'quoteUri' => 'fedibird:quoteUri' },
     '_misskey_content': { 'misskey' => 'https://misskey-hub.net/ns#', '_misskey_content' => 'misskey:_misskey_content' },
     '_misskey_quote': { 'misskey' => 'https://misskey-hub.net/ns#', '_misskey_quote' => 'misskey:_misskey_quote' },
+    is_cat: { 'isCat' => 'as:isCat' },
   }.freeze
 
   def full_context
