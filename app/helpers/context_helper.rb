@@ -32,6 +32,7 @@ module ContextHelper
       'messageFranking' => 'toot:messageFranking', 'messageType' => 'toot:messageType', 'cipherText' => 'toot:cipherText'
     },
     suspended: { 'toot' => 'http://joinmastodon.org/ns#', 'suspended' => 'toot:suspended' },
+    is_cat: { 'isCat' => 'as:isCat' },
   }.freeze
 
   def full_context

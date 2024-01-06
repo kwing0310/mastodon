@@ -10,7 +10,7 @@ import ImmutablePropTypes from 'react-immutable-proptypes';
 import ImmutablePureComponent from 'react-immutable-pure-component';
 
 import { Avatar } from 'mastodon/components/avatar';
-import { Badge, AutomatedBadge, GroupBadge } from 'mastodon/components/badge';
+import { Badge, AutomatedBadge, CatBadge, GroupBadge } from 'mastodon/components/badge';
 import Button from 'mastodon/components/button';
 import { FollowersCounter, FollowingCounter, StatusesCounter } from 'mastodon/components/counters';
 import { Icon }  from 'mastodon/components/icon';
@@ -377,6 +377,10 @@ class Header extends ImmutablePureComponent {
       badges.push(<AutomatedBadge key='bot-badge' />);
     } else if (account.get('group')) {
       badges.push(<GroupBadge key='group-badge' />);
+    }
+
+    if (account.get('cat')) {
+      badges.push(<CatBadge key='cat-badge' />);
     }
 
     account.get('roles', []).forEach((role) => {

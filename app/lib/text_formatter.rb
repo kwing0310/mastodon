@@ -20,6 +20,7 @@ class TextFormatter
   # @option options [Boolean] :multiline
   # @option options [Boolean] :with_domains
   # @option options [Boolean] :with_rel_me
+  # @option options [Boolean] :nyaize
   # @option options [Array<Account>] :preloaded_accounts
   def initialize(text, options = {})
     @text    = text
@@ -28,6 +29,10 @@ class TextFormatter
 
   def entities
     @entities ||= Extractor.extract_entities_with_indices(text, extract_url_without_protocol: false)
+  end
+
+  def nyaize(html)
+    html.gsub(/な/, "にゃ").gsub(/ナ/, "ニャ").gsub(/ﾅ/, "ﾆｬ").gsub(/[나-낳]/){|c|(c.ord + '냐'.ord - '나'.ord).chr}
   end
 
   def to_s
@@ -41,6 +46,10 @@ class TextFormatter
       elsif entity[:screen_name]
         link_to_mention(entity)
       end
+    end
+    
+    if options[:nyaize]
+      html = nyaize(html)
     end
 
     html = simple_format(html, {}, sanitize: false).delete("\n") if multiline?
