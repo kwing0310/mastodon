@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-ruby '>= 2.7.0', '< 3.1.0'
+ruby '>= 2.7.0', '< 3.2.0'
 
 gem 'pkg-config', '~> 1.5'
 gem 'rexml', '~> 3.2'
@@ -69,6 +69,7 @@ gem 'posix-spawn'
 gem 'public_suffix', '~> 5.0'
 gem 'pundit', '~> 2.3'
 gem 'premailer-rails'
+gem 'psych', '~> 3.1'
 gem 'rack-attack', '~> 6.6'
 gem 'rack-cors', '~> 1.1', require: 'rack/cors'
 gem 'rails-i18n', '~> 6.0'
