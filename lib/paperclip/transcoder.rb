@@ -19,10 +19,7 @@ module Paperclip
     def make
       metadata = VideoMetadataExtractor.new(@file.path)
 
-      unless metadata.valid?
-        Paperclip.log("Unsupported file #{@file.path}")
-        return File.open(@file.path)
-      end
+      raise Paperclip::Error, "Error while transcoding #{@file.path}: unsupported file" unless metadata.valid?
 
       update_attachment_type(metadata)
       update_options_from_metadata(metadata)
@@ -40,19 +37,21 @@ module Paperclip
         @output_options['f']       = 'image2'
         @output_options['vframes'] = 1
       when 'mp4'
-        @output_options['acodec'] = 'aac'
-        @output_options['strict'] = 'experimental'
+        unless eligible_to_passthrough?(metadata)
+          @output_options['acodec'] = 'aac'
+          @output_options['strict'] = 'experimental'
 
-        if high_vfr?(metadata) && !eligible_to_passthrough?(metadata)
-          @output_options['vsync'] = 'vfr'
-          @output_options['r'] = @vfr_threshold
+          if high_vfr?(metadata)
+            @output_options['vsync'] = 'vfr'
+            @output_options['r'] = @vfr_threshold
+          end
         end
       end
 
       command_arguments, interpolations = prepare_command(destination)
 
       begin
-        command = Terrapin::CommandLine.new('ffmpeg', command_arguments.join(' '), logger: Paperclip.logger)
+        command = Terrapin::CommandLine.new(Rails.configuration.x.ffmpeg_binary, command_arguments.join(' '), logger: Paperclip.logger)
         command.run(interpolations)
       rescue Terrapin::ExitStatusError => e
         raise Paperclip::Error, "Error while transcoding #{@basename}: #{e}"

@@ -10,8 +10,10 @@ RSpec.describe FetchLinkCardService, type: :service do
     stub_request(:get, 'http://example.com/koi8-r').to_return(request_fixture('koi8-r.txt'))
     stub_request(:get, 'http://example.com/日本語').to_return(request_fixture('sjis.txt'))
     stub_request(:get, 'https://github.com/qbi/WannaCry').to_return(status: 404)
+    stub_request(:get, 'http://example.com/test?data=file.gpx%5E1').to_return(status: 200)
     stub_request(:get, 'http://example.com/test-').to_return(request_fixture('idn.txt'))
     stub_request(:get, 'http://example.com/windows-1251').to_return(request_fixture('windows-1251.txt'))
+    stub_request(:get, 'http://example.com/low_confidence_latin1').to_return(request_fixture('low_confidence_latin1.txt'))
 
     subject.call(status)
   end
@@ -61,7 +63,15 @@ RSpec.describe FetchLinkCardService, type: :service do
       end
     end
 
-    context do
+    context 'with a URL of a page in ISO-8859-1 encoding, that charlock_holmes cannot detect' do
+      let(:status) { Fabricate(:status, text: 'Check out http://example.com/low_confidence_latin1') }
+
+      it 'decodes the HTML' do
+        expect(status.preview_card.title).to eq("Tofu á l'orange")
+      end
+    end
+
+    context 'with a Japanese path URL' do
       let(:status) { Fabricate(:status, text: 'テストhttp://example.com/日本語') }
 
       it 'works with Japanese path string' do
@@ -83,6 +93,28 @@ RSpec.describe FetchLinkCardService, type: :service do
 
       it 'does not fetch URLs with not isolated from their surroundings' do
         expect(a_request(:get, 'http://example.com/sjis')).to_not have_been_made
+      end
+    end
+
+    context do
+      let(:status) { Fabricate(:status, text: 'test http://example.com/test?data=file.gpx^1') }
+
+      it 'does fetch URLs with a caret in search params' do
+        expect(a_request(:get, 'http://example.com/test?data=file.gpx')).to_not have_been_made
+        expect(a_request(:get, 'http://example.com/test?data=file.gpx%5E1')).to have_been_made.once
+      end
+    end
+
+    context 'with an URL too long for PostgreSQL unique indexes' do
+      let(:url) { "http://example.com/#{'a' * 2674}" }
+      let(:status) { Fabricate(:status, text: url) }
+
+      it 'does not fetch the URL' do
+        expect(a_request(:get, url)).to_not have_been_made
+      end
+
+      it 'does not create a preview card' do
+        expect(status.preview_card).to be_nil
       end
     end
   end
