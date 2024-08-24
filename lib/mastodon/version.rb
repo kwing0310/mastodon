@@ -17,11 +17,11 @@ module Mastodon
     end
 
     def flags
-      ''
+      '+chillout'
     end
 
     def suffix
-      ''
+      '.1'
     end
 
     def to_a
