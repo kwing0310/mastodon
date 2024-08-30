@@ -131,13 +131,13 @@ export function quoteCompose(status, routerHistory) {
 
     ensureComposeIsVisible(getState, routerHistory);
   };
-};
+}
 
 export function cancelQuoteCompose() {
   return {
     type: COMPOSE_QUOTE_CANCEL,
   };
-};
+}
 
 export function resetCompose() {
   return {

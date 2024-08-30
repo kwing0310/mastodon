@@ -169,11 +169,11 @@ class Status extends ImmutablePureComponent {
 
   handleToggleQuoteMediaVisibility = () => {
     this.setState({ showQuoteMedia: !this.state.showQuoteMedia });
-  }
+  };
 
   handleQuoteClick = e => {
     this.handleClick(e, true);
-  }
+  };
 
   handleClick = (e, quote = false) => {
     if (e && (e.button !== 0 || e.ctrlKey || e.metaKey)) {
@@ -193,7 +193,7 @@ class Status extends ImmutablePureComponent {
 
   handleQuoteAccountClick = e => {
     this.handleAccountClick(e, true, true);
-  }
+  };
 
   handleAccountClick = (e, proper = true, quote = false) => {
     if (e && (e.button !== 0 || e.ctrlKey || e.metaKey))  {
@@ -243,7 +243,7 @@ class Status extends ImmutablePureComponent {
   handleOpenVideoQuote = (options) => {
     const status = this._properQuoteStatus();
     this.props.onOpenVideo(status.get('id'), status.getIn(['media_attachments', 0]), options);
-  }
+  };
 
   handleOpenMedia = (media, index) => {
     this.props.onOpenMedia(this._properStatus().get('id'), media, index);
@@ -251,7 +251,7 @@ class Status extends ImmutablePureComponent {
 
   handleOpenMediaQuote = (media, index) => {
     this.props.onOpenMedia(this._properQuoteStatus().get('id'), media, index);
-  }
+  };
 
   handleHotkeyOpenMedia = e => {
     const { onOpenMedia, onOpenVideo } = this.props;
