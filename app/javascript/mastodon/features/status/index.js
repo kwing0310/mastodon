@@ -242,7 +242,7 @@ class Status extends ImmutablePureComponent {
 
   handleToggleQuoteMediaVisibility = () => {
     this.setState({ showQuoteMedia: !this.state.showQuoteMedia });
-  }
+  };
 
   handleFavouriteClick = (status) => {
     const { dispatch } = this.props;
@@ -340,7 +340,7 @@ class Status extends ImmutablePureComponent {
     } else {
       dispatch(quoteCompose(status, this.context.router.history));
     }
-  }
+  };
 
   handleDeleteClick = (status, history, withRedraft = false) => {
     const { dispatch, intl } = this.props;
@@ -378,11 +378,11 @@ class Status extends ImmutablePureComponent {
 
   handleOpenMediaQuote = (media, index) => {
     this.props.dispatch(openModal('MEDIA', { statusId: this.props.status.getIn(['quote', 'id']), media, index }));
-  }
+  };
 
   handleOpenVideoQuote = (media, options) => {
     this.props.dispatch(openModal('VIDEO', { statusId: this.props.status.getIn(['quote', 'id']), media, options }));
-  }
+  };
 
   handleHotkeyOpenMedia = e => {
     const { status } = this.props;

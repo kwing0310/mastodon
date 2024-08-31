@@ -178,7 +178,7 @@ class Footer extends ImmutablePureComponent {
     } else {
       this._performQuote();
     }
-  }
+  };
 
   render () {
     const { status, intl, withOpenButton } = this.props;

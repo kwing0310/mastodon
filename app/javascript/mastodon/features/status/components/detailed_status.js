@@ -100,7 +100,7 @@ class DetailedStatus extends ImmutablePureComponent {
     }
 
     e.stopPropagation();
-  }
+  };
 
   handleOpenVideo = (options) => {
     this.props.onOpenVideo(this.props.status.getIn(['media_attachments', 0]), options);
@@ -108,7 +108,7 @@ class DetailedStatus extends ImmutablePureComponent {
 
   handleOpenVideoQuote = (options) => {
     this.props.onOpenVideoQuote(this.props.status.getIn(['quote', 'media_attachments', 0]), options);
-  }
+  };
 
   handleExpandedToggle = () => {
     this.props.onToggleHidden(this.props.status);
@@ -154,7 +154,7 @@ class DetailedStatus extends ImmutablePureComponent {
 
   handleExpandedQuoteToggle = () => {
     this.props.onToggleHidden(this.props.status.get('quote'));
-  }
+  };
 
   handleQuoteClick = () => {
     if (!this.context.router) {
@@ -163,7 +163,7 @@ class DetailedStatus extends ImmutablePureComponent {
 
     const { status } = this.props;
     this.context.router.history.push(`/@${status.getIn(['quote', 'account', 'acct'])}/${status.getIn(['quote', 'id'])}`);
-  }
+  };
 
   render () {
     const status = (this.props.status && this.props.status.get('reblog')) ? this.props.status.get('reblog') : this.props.status;
