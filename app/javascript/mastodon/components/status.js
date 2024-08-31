@@ -678,7 +678,7 @@ class Status extends ImmutablePureComponent {
           <div className={classNames('quote-status', `status-${quote_status.get('visibility')}`, { 'status-reply': !!quote_status.get('in_reply_to_id'), muted: this.props.muted })} data-id={quote_status.get('id')}>
             <div className='status__info'>
               <a onClick={this.handleQuoteAccountClick} target='_blank' href={quote_status.getIn(['account', 'url'])} title={quote_status.getIn(['account', 'acct'])} className='status__display-name'>
-                <div className='status__avatar'><Avatar account={quote_status.get('account')} size={18} /></div>
+                <div className='status__avatar'><Avatar account={quote_status.get('account')} size={24} /></div>
                 <DisplayName account={quote_status.get('account')} />
               </a>
             </div>

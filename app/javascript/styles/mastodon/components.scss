@@ -1081,8 +1081,8 @@ body > [data-popper-placement] {
 .quote-status {
   border: solid 1px $ui-base-lighter-color;
   border-radius: 4px;
-  padding: 5px;
-  margin-top: 8px;
+  padding: 8px;
+  margin-top: 12px;
   position: relative;
 
   & > .unlisted-quote {
@@ -1109,25 +1109,26 @@ body > [data-popper-placement] {
 
   .status__avatar,
   .detailed-status__display-avatar {
-    height: 18px;
-    width: 18px;
+    height: 24px;
+    width: 24px;
     position: absolute;
-    top: 5px !important;
-    left: 5px !important;
+    top: 8px !important;
+    left: 8px !important;
     cursor: pointer;
 
     & > div {
-      width: 18px;
-      height: 18px;
+      width: 24px;
+      height: 24px;
     }
   }
 
   .display-name__account {
+    padding-left: 4px;
     color: $ui-base-lighter-color;
   }
 
   .display-name {
-    padding-left: 20px;
+    padding-left: 28px;
     display: flex;
   }
 
@@ -1143,6 +1144,18 @@ body > [data-popper-placement] {
 
 .muted .quote-status .display-name {
   color: $ui-base-lighter-color;
+}
+
+.detailed-status .quote-status {
+  margin-bottom: 4px;
+
+  .display-name {
+    padding-left: 30px;
+  }
+
+  .status__content__text {
+    margin-top: 4px;
+  }
 }
 
 .status__prepend-icon-wrapper {
