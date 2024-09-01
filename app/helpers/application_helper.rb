@@ -168,6 +168,7 @@ module ApplicationHelper
     output << 'system-font' if current_account&.user&.setting_system_font_ui
     output << (current_account&.user&.setting_reduce_motion ? 'reduce-motion' : 'no-reduce-motion')
     output << 'rtl' if locale_direction == 'rtl'
+    output << 'legacy-mode' if current_account&.user&.setting_legacy_mode
     output.reject(&:blank?).join(' ')
   end
 

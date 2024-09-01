@@ -924,6 +924,8 @@ ja:
     animations_and_accessibility: アニメーションとアクセシビリティー
     confirmation_dialogs: 確認ダイアログ
     discovery: 見つける
+    legacy_mode: レガシーモード
+    legacy_mode_hint: コンパクトな見た目がお好みの場合、レガシーモードをおすすめします。タイムラインやモバイル UI のレイアウトが Mastodon v3 以前のようになります。
     localization:
       body: Mastodonは有志によって翻訳されています。
       guide_link: https://ja.crowdin.com/project/mastodon

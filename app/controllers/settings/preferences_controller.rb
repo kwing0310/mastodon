@@ -45,6 +45,7 @@ class Settings::PreferencesController < Settings::BaseController
       :setting_reduce_motion,
       :setting_disable_swiping,
       :setting_custom_css,
+      :setting_legacy_mode,
       :setting_system_font_ui,
       :setting_noindex,
       :setting_theme,

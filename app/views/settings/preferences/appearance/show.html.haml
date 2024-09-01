@@ -21,6 +21,13 @@
 
   .fields-group
     = f.input :setting_advanced_layout, as: :boolean, wrapper: :with_label, hint: false
+  
+  %h4= t 'appearance.legacy_mode'
+
+  %p.hint= t 'appearance.legacy_mode_hint'
+
+  .fields-group
+    = f.input :setting_legacy_mode, as: :boolean, wrapper: :with_label, hint: false
 
   %h4= t 'appearance.animations_and_accessibility'
 

@@ -29,6 +29,7 @@ class UserSettingsDecorator
     crop_images
     always_send_emails
     show_quote_button
+    legacy_mode
   ).freeze
 
   STRING_KEYS = %w(

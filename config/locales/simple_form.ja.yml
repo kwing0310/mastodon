@@ -211,6 +211,7 @@ ja:
         setting_display_media_show_all: 表示
         setting_expand_spoilers: 閲覧注意としてマークされた投稿を常に展開する
         setting_hide_network: 繋がりを隠す
+        setting_legacy_mode: レガシーモードを有効にする
         setting_noindex: 検索エンジンによるインデックスを拒否する
         setting_reduce_motion: アニメーションの動きを減らす
         setting_show_application: 送信したアプリを開示する

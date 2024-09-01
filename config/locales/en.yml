@@ -952,6 +952,8 @@ en:
     animations_and_accessibility: Animations and accessibility
     confirmation_dialogs: Confirmation dialogs
     discovery: Discovery
+    legacy_mode: Legacy mode
+    legacy_mode_hint: If you prefer a compact user interface, the legacy mode allows you to make timelines and mobile UI look like Mastodon v3 and earlier.
     localization:
       body: Mastodon is translated by volunteers.
       guide_link: https://crowdin.com/project/mastodon
