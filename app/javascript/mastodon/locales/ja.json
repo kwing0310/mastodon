@@ -617,6 +617,7 @@
   "tabs_bar.home": "ホーム",
   "tabs_bar.local_timeline": "ローカル",
   "tabs_bar.notifications": "通知",
+  "tabs_bar.search": "エクスプローラー",
   "time_remaining.days": "残り{number}日",
   "time_remaining.hours": "残り{number}時間",
   "time_remaining.minutes": "残り{number}分",

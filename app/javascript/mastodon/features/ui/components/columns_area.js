@@ -21,6 +21,9 @@ import {
 } from '../../ui/util/async-components';
 import ComposePanel from './compose_panel';
 import NavigationPanel from './navigation_panel';
+import TabsBar from './tabs_bar';
+import { Link } from 'react-router-dom';
+import Icon from 'mastodon/components/icon';
 import { supportsPassiveEvents } from 'detect-passive-events';
 import { scrollRight } from '../../../scroll';
 
@@ -147,7 +150,7 @@ export default class ColumnsArea extends ImmutablePureComponent {
           </div>
 
           <div className='columns-area__panels__main'>
-            <div className='tabs-bar__wrapper'><div id='tabs-bar__portal' /></div>
+            <TabsBar />
             <div className='columns-area columns-area--mobile'>{children}</div>
           </div>
 
@@ -156,6 +159,8 @@ export default class ColumnsArea extends ImmutablePureComponent {
               <NavigationPanel />
             </div>
           </div>
+
+          <Link key='floating-action-button' to='/publish' className='floating-action-button' aria-label='publish'><Icon id='pencil' /></Link>
         </div>
       );
     }

@@ -1,0 +1,60 @@
+.tabs-bar {
+  display: none;
+}
+
+.floating-action-button {
+  display: none;
+}
+
+.legacy-mode {
+  @media screen and (max-width: 500px) {
+    .floating-action-button {
+      position: fixed;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 3.9375rem;
+      height: 3.9375rem;
+      bottom: 1.3125rem;
+      right: 1.3125rem;
+      background: darken($ui-highlight-color, 3%);
+      color: $white;
+      border-radius: 50%;
+      font-size: 21px;
+      line-height: 21px;
+      text-decoration: none;
+      box-shadow: 2px 3px 9px rgba($base-shadow-color, 0.4);
+    
+      &:hover,
+      &:focus,
+      &:active {
+        background: lighten($ui-highlight-color, 7%);
+      }
+    }
+
+    .tabs-bar {
+      display: flex;
+      width: 100%;
+    }
+
+    .tabs-bar__wrapper {
+      top: 0;
+    }
+
+    .ui__header {
+      display: none;
+    }
+
+    .columns-area__panels {
+      min-height: 100vh;
+
+      &__main {
+        width: 100%;
+      }
+
+      &__pane--navigational {
+        display: none;
+      }
+    }
+  }
+}
